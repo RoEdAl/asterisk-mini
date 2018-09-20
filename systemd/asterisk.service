@@ -1,0 +1,21 @@
+[Unit]
+Description=Asterisk PBX and telephony daemon - minimal configuration
+After=network.target
+After=postgresql.service
+
+[Service]
+Type=notify
+Environment=HOME=/var/lib/asterisk
+WorkingDirectory=/var/lib/asterisk
+RuntimeDirectory=asterisk-mini
+LogsDirectory=asterisk-mini
+PrivateTmp=yes
+User=asterisk
+Group=asterisk
+ExecStart=/usr/bin/asterisk -mqf -C /etc/asterisk/asterisk.conf
+ExecReload=/usr/bin/asterisk -rx -s /run/asterisk/asterisk.ctl 'core reload'
+Restart=always
+RestartSec=4
+
+[Install]
+WantedBy=multi-user.target
