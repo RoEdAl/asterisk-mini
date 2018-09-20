@@ -7,11 +7,12 @@ After=postgresql.service
 Type=notify
 Environment=HOME=/var/lib/asterisk
 WorkingDirectory=/var/lib/asterisk
-RuntimeDirectory=asterisk-mini
-LogsDirectory=asterisk-mini
+RuntimeDirectory=asterisk
+LogsDirectory=asterisk
 PrivateTmp=yes
 User=asterisk
 Group=asterisk
+SupplementaryGroups=audio
 ExecStart=/usr/bin/asterisk -mqf -C /etc/asterisk/asterisk.conf
 ExecReload=/usr/bin/asterisk -rx -s /run/asterisk/asterisk.ctl 'core reload'
 Restart=always
