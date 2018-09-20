@@ -8,6 +8,7 @@ Type=notify
 Environment=HOME=/var/lib/asterisk
 WorkingDirectory=/var/lib/asterisk
 RuntimeDirectory=asterisk
+RuntimeDirectoryMode=755
 LogsDirectory=asterisk
 PrivateTmp=yes
 User=asterisk
