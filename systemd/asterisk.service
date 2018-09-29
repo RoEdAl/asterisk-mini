@@ -15,7 +15,7 @@ User=asterisk
 Group=asterisk
 SupplementaryGroups=audio
 ExecStart=/usr/bin/asterisk -mqf -C /etc/asterisk/asterisk.conf
-ExecReload=/usr/bin/asterisk -rx -s /run/asterisk/asterisk.ctl 'core reload'
+ExecReload=/usr/bin/asterisk -rq -s /run/asterisk/asterisk.ctl -x 'core reload'
 Restart=always
 RestartSec=4
 
